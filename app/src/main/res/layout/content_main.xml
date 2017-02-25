@@ -5,13 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     tools:context="com.mallow.michael.linuxcommandcheatsheet.MainActivity"
     tools:showIn="@layout/activity_main"
     android:theme="@style/MainTheme">
+
+
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/layout">
+
 
     </TableLayout>
 

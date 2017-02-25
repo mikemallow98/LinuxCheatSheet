@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "770838792162",
+    "firebase_url": "https://linux-cheat-sheet.firebaseio.com",
+    "project_id": "linux-cheat-sheet",
+    "storage_bucket": "linux-cheat-sheet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770838792162:android:e5fc92d8c5d470ec",
+        "android_client_info": {
+          "package_name": "com.mallow.michael.linxcommandcheatsheet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770838792162-ke7fab5vhnm5ds8hiep6kg7k1v6ut0uj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4TscvL8autGtG_leKLAc_YvG6k4IDn7E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
