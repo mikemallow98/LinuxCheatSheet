@@ -1,6 +1,7 @@
 package com.mallow.michael.linuxcommandcheatsheet;
 
 import android.app.ActionBar;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             TextView t1 = new TextView(this);
+            t1.setTextColor(Color.parseColor("#00FF2E"));
             t1.setLayoutParams(new android.widget.TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1.0f));
             lengthFirst = (int) t1.getTextSize();
             t1.setText(commands[j]);
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
             t1 = new TextView(this);
             t1.setText(commands[j+1]);
+            t1.setTextColor(Color.parseColor("#00FF2E"));
             lengthSecond = (int) t1.getTextSize();
             spaces.setText(numSpaces(lengthFirst, tableRows[i].getMeasuredWidth(), lengthSecond));
             tableRows[i].addView(spaces);
