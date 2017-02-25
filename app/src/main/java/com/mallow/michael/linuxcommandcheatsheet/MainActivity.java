@@ -1,21 +1,28 @@
 package com.mallow.michael.linuxcommandcheatsheet;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private String[] commands = {"cd", "move into directory", "pwd", "print working directory", "ls", "list directory content", "touch [filename]", "Create an empty file"};
+    private final String[] commands = {"cd", "move into directory", "pwd", "print working directory", "ls", "list directory content", "touch",
+            "Create an empty file", "mkdir", "creates a new directory", "df", "displays amount of disk space", "echo", "repeats a string to output",
+    "free", "displays amount of free and used memory", "passwd", "updates user's password", "ps", "reports status of current processes", "shutdown",
+    "turns off the computer", "sudo", "gives admin root access", "tar", "creates tar archive"};
     private TableLayout layout;
 
     @Override
@@ -40,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_suggestions) {
+            sendEmail();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -92,5 +99,33 @@ public class MainActivity extends AppCompatActivity {
         for(int i =0; i < temp; i++)
             retVal = retVal + " ";
         return retVal;
+    }
+
+    //method created by User Psypher from stackOverflow
+    //link to thread: http://stackoverflow.com/questions/28546703/how-to-code-using-android-studio-to-send-an-email
+    protected void sendEmail() {
+        Log.i("Send email", "");
+
+        String[] TO = {"mallowdev@gmail.com"};
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+
+
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        //emailIntent.putExtra(Intent.EXTRA_CC, CC);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Linux Command CheatSheet request");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Email message goes here");
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            finish();
+            Intent in = new Intent();
+            //startActivity(in, MainActivity.class);
+            Log.i("Finished sending email", "");
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(MainActivity.this,
+                    "There is no email client installed.", Toast.LENGTH_SHORT).show();
+        }
     }
 }
